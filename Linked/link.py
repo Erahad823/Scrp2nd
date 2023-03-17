@@ -100,19 +100,19 @@ for url in urls:
         time.sleep(3)
 
 
-        # link = driver.execute_script('return document.querySelector("ul > li:nth-child(1) > div > div:nth-child(1) > a")')
-        # time.sleep(3)
-        # comp_prof = link.get_attribute('href')
-        # print(comp_prof)
+        link = driver.execute_script('return document.querySelector("ul > li:nth-child(1) > div > div:nth-child(1) > a")')
+        time.sleep(3)
+        comp_prof = link.get_attribute('href')
+        print(comp_prof)
 
-        # driver.get(comp_prof)
-        # time.sleep(4)
+        driver.get(comp_prof)
+        time.sleep(4)
     
-        # pd = driver.execute_script('return document.querySelector("div.relative > div.ph5.pt3 > div:nth-child(3)")')
-        # time.sleep(4)
-        # href = driver.execute_script('return arguments[0].querySelector("a").href', pd)
-        # print(href)
-        # address = driver.find_element(By.CSS_SELECTOR, 'section.pv-contact-info__contact-type.ci-address > div > div.pv-contact-info__contact-item > span').text.strip()
+        pd = driver.execute_script('return document.querySelector("div.relative > div.ph5.pt3 > div:nth-child(3)")')
+        time.sleep(4)
+        href = driver.execute_script('return arguments[0].querySelector("a").href', pd)
+        print(href)
+        address = driver.find_element(By.CSS_SELECTOR, 'section.pv-contact-info__contact-type.ci-address > div > div.pv-contact-info__contact-item > span').text.strip()
         address = driver.execute_script('return document.querySelector("div.mt2.relative > div.pv-text-details__left-panel.mt2 > span.text-body-small.inline").textContent').strip()
         print(address)
         
@@ -122,17 +122,17 @@ for url in urls:
 # Close the browser window
 driver.quit()
 
-# # Calculate the total time taken for the script to run
-# end = time.perf_counter()
-# print(f"Script executed successfully in {end - start:0.2f} seconds.")
-# print(end-start,'Time')
-# print('The CPU usage is: ', psutil.cpu_percent(end-start))
-# # Getting % usage of virtual_memory ( 3rd field)
-# print('RAM memory % used:', psutil.virtual_memory()[2])
-# # Getting usage of virtual_memory in GB ( 4th field)
-# print('RAM Used (GB):', psutil.virtual_memory()[3]/1000000000)
-# # End monitoring CPU usage
-# end_cpu_time = process.cpu_percent()
-# cpu_usage = end_cpu_time - start_cpu_time
-# print(f"CPU usage: {cpu_usage}%")
+# Calculate the total time taken for the script to run
+end = time.perf_counter()
+print(f"Script executed successfully in {end - start:0.2f} seconds.")
+print(end-start,'Time')
+print('The CPU usage is: ', psutil.cpu_percent(end-start))
+# Getting % usage of virtual_memory ( 3rd field)
+print('RAM memory % used:', psutil.virtual_memory()[2])
+# Getting usage of virtual_memory in GB ( 4th field)
+print('RAM Used (GB):', psutil.virtual_memory()[3]/1000000000)
+# End monitoring CPU usage
+end_cpu_time = process.cpu_percent()
+cpu_usage = end_cpu_time - start_cpu_time
+print(f"CPU usage: {cpu_usage}%")
 

@@ -1,5 +1,12 @@
 from flask import Flask, jsonify
 import mysql.connector
+import time
+import psutil
+start = time.perf_counter()
+
+# Start monitoring CPU usage
+process = psutil.Process()
+start_cpu_time = process.cpu_percent()
 
 # Create a connection to the MySQL database
 def create_connection():
@@ -11,9 +18,9 @@ def create_connection():
     )
     return conn
 app = Flask(__name__)
-# @app.route('/greet')
-# def greet():
-#     return jsonify({'message': f'Hello, Please enter the sludge name of linkedin profile..!'})
+@app.route('/greet')
+def greet():
+    return jsonify({'message': f'Hello, Please enter the sludge name of linkedin profile.. Example http://127.0.0.1:5000/<name>!'})
 
 # Define a route with a dynamic parameter
 @app.route('/<linkedin_name>')
@@ -71,7 +78,7 @@ def func(linkedin_name):
 
         # Send username and password to input fields
         username = "ahad.hestabit@gmail.com"
-        password = "8130928966@Aa"
+        password = "*************"
         email_field.send_keys(username)
         password_field.send_keys(password)
 
@@ -134,8 +141,19 @@ def func(linkedin_name):
     end =time.perf_counter()
 
     print(f'Total Time is {end - start:0.2f} in seconds..')
-    return jsonify({'message': f'Hello, {linkedin_name}!'})
+    end = time.perf_counter()
+    print(f"Script executed successfully in {end - start:0.2f} seconds.")
+    print(end-start,'Time')
+    print('The CPU usage is: ', psutil.cpu_percent(end-start))
+    # Getting % usage of virtual_memory ( 3rd field)
+    print('RAM memory % used:', psutil.virtual_memory()[2])
+    # Getting usage of virtual_memory in GB ( 4th field)
+    print('RAM Used (GB):', psutil.virtual_memory()[3]/1000000000)
+    # End monitoring CPU usage
+    end_cpu_time = process.cpu_percent()
+    cpu_usage = end_cpu_time - start_cpu_time
+    print(f"CPU usage: {cpu_usage}%")
+    return jsonify({'message': f'Hello, {linkedin_name},!'})
 
 if __name__ == '__main__':
-
-    app.run()
+    app.run(debug=True)
