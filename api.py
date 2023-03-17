@@ -11,12 +11,13 @@ def create_connection():
     )
     return conn
 app = Flask(__name__)
+# @app.route('/greet')
+# def greet():
+#     return jsonify({'message': f'Hello, Please enter the sludge name of linkedin profile..!'})
 
 # Define a route with a dynamic parameter
-@app.route('/<name>')
-# def greet(name):
-#     return jsonify({'message': f'Hello, {name}!'})
-def func(name):
+@app.route('/<linkedin_name>')
+def func(linkedin_name):
     import os
     import time
     from selenium import webdriver
@@ -87,7 +88,7 @@ def func(name):
                 file.write(f"{cookie['name']}={cookie['value']};")
 
     # Navigate to LinkedIn homepage
-    url = name
+    url = linkedin_name
     try:
         time.sleep(2)
         driver.get(f'https://www.linkedin.com/in/{url}/')
@@ -122,16 +123,19 @@ def func(name):
     # Update the data in the database
     conn = create_connection()
     cursor = conn.cursor()
-
-    query = "UPDATE contacts SET current_company_linkedin_url=%s, location = %s, current_company=%s ,current_company_website =%s WHERE linkedin_slug=%s"
-    values = (comp_linkedin_url,address,comp_name,comp_domain, url)
-    cursor.execute(query, values)
+    try:
+        query = "UPDATE contacts SET current_company_linkedin_url=%s, location = %s, current_company=%s ,current_company_website =%s WHERE linkedin_slug=%s"
+        values = (comp_linkedin_url,address,comp_name,comp_domain, url)
+        cursor.execute(query, values)
+    except Exception as e:
+        print(f'Unable to print{e}')
     conn.commit()
     conn.close()
     end =time.perf_counter()
 
     print(f'Total Time is {end - start:0.2f} in seconds..')
-    return jsonify({'message': f'Hello, {name}!'})
+    return jsonify({'message': f'Hello, {linkedin_name}!'})
 
 if __name__ == '__main__':
+
     app.run()
