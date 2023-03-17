@@ -69,8 +69,8 @@ def func(name):
         password_field = driver.find_element(By.NAME, "session_password")
 
         # Send username and password to input fields
-        username = "ahad.hestabit@gmail.com"
-        password = "8130928966@Aa"
+        username = "a******@gmail.com"
+        password = "**********"
         email_field.send_keys(username)
         password_field.send_keys(password)
 
