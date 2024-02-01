@@ -1,6 +1,3 @@
-'''SQL Connection
-mysql --host=localhost --user=hestabit --password=hestabit  To connect in Console 
-'''
 
 
 import mysql.connector
