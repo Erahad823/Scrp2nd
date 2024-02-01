@@ -8,9 +8,9 @@ import mysql.connector
 def create_connection():
     conn = mysql.connector.connect(
         host="localhost",
-        user="hestabit",
-        password="hestabit",
-        database="linkedin_url"
+        user="",
+        password="",
+        database=""
     )
     return conn
 
@@ -36,9 +36,9 @@ conn.close()
 
 # mydb = mysql.connector.connect(
 #     host = 'localhost',
-#     user = 'hestabit',
-#     password ='hestabit',
-#     database = 'db1'
+#     user = '',
+#     password ='',
+#     database = ''
 # )
 # print(mydb.connection_id)
 
