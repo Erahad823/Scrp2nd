@@ -1,5 +1,5 @@
 '''SQL Connection
-mysql --host=localhost --user=hestabit --password=hestabit  To connect in Console 
+mysql --host=localhost --user="" --password=""  To connect in Console 
 '''
 
 import mysql.connector
@@ -7,9 +7,9 @@ import mysql.connector
 def create_connection():
     conn = mysql.connector.connect(
         host="localhost",
-        user="hestabit",
-        password="hestabit",
-        database="linked_url"
+        user="",
+        password="",
+        database=""
     )
     return conn
 
