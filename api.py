@@ -11,10 +11,10 @@ start_cpu_time = process.cpu_percent()
 # Create a connection to the MySQL database
 def create_connection():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="hestabit",
-        password="hestabit",
-        database="linkedin_url"
+        host="",
+        user="",
+        password="",
+        database=""
     )
     return conn
 app = Flask(__name__)
@@ -77,8 +77,8 @@ def func(linkedin_name):
         password_field = driver.find_element(By.NAME, "session_password")
 
         # Send username and password to input fields
-        username = "ahad.hestabit@gmail.com"
-        password = "*************"
+        username = "@gmail.com"
+        password = ""
         email_field.send_keys(username)
         password_field.send_keys(password)
 
