@@ -87,10 +87,9 @@ else:
             file.write(f"{cookie['name']}={cookie['value']};")
 
 # Navigate to LinkedIn homepage
-urls = ['https://www.linkedin.com/in/aman-kumar-74911540/',
-        'https://www.linkedin.com/in/vijay-gupta-50b55b16/',
-        'https://www.linkedin.com/in/devanbhalla/',
-        'https://www.linkedin.com/in/nadeem-a23341101/'
+urls = ['https://www.linkedin.com/in/am74911540/',
+        'https://www.linkedi/',
+        'https://www.linkedin.com/in/na341101/'
         ]
 
 for url in urls:
