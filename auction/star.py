@@ -50,8 +50,8 @@ email_field = login_form.find_element(By.NAME, "email")
 password_field = login_form.find_element(By.NAME, "password")
 
 # Send username and password to input fields
-username = "erahad823@gmail.com"
-password = "9971228546@Aa"
+username = ""
+password = "9"
 email_field.send_keys(username)
 password_field.send_keys(password)
 
