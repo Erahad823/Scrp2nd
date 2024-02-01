@@ -109,7 +109,7 @@ conn.close()
 #         cursor.execute(query)
 
 
-# client = Access('localhost', 'hestabit', 'hestabit', 'db1')
+# client = Access('localhost', 'user', 'pass', 'dbname')
 # client.create_connection()
 
 # conn = client.mydb
